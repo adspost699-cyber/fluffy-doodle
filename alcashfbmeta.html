@@ -2,91 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <meta name="robots" content="noindex, nofollow">
-    <title>FB Image Loader</title>
+    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph tags (for sharing on Facebook) -->
-    <meta property="og:title" content="Image">
-    <meta property="og:description" content="Your image">
-    <meta property="og:image" content="https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
+    <!-- ───── Open Graph (Facebook) ───── -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Photo">
+    <meta property="og:description" content="Shared image">
+    <meta property="og:site_name" content="Image Share">
+
+    <!-- ✅ PROXIED image – Facebook ko fbcdn nahi dikhega -->
+    <meta property="og:image" content="https://wsrv.nl/?url=https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102">
+    <meta property="og:image:secure_url" content="https://wsrv.nl/?url=https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102">
     <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
+    <!-- ───── Twitter Card ───── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Photo">
+    <meta name="twitter:image" content="https://wsrv.nl/?url=https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102">
+
+    <title>Image</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #18191a;
-            color: #e4e6eb;
-            font-family: Arial, sans-serif;
+            background: #0a0a0a;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-        #container {
+        .card {
+            max-width: 720px;
+            width: 95%;
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-footer {
+            padding: 16px 20px;
+            color: #aaa;
+            font-size: 0.8rem;
             text-align: center;
-            max-width: 90%;
-        }
-        img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 16px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-        .note {
-            font-size: 0.8em;
-            margin-top: 1em;
-            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <div id="container">
-        <!-- Fallback static image tag (no script) -->
-        <img id="main-img"
+    <div class="card">
+        <!-- PROXIED image – wsrv.nl fetches from FB CDN, browser sees neutral domain -->
+        <img src="https://wsrv.nl/?url=https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102"
              alt="Image"
              referrerpolicy="no-referrer"
              crossorigin="anonymous"
-             style="display:none;">
-
-        <div id="loading">⏳ Loading image securely...</div>
-
-        <p class="note">✨ This image is fetched directly from Facebook CDN with <strong>zero referrer</strong> – Facebook cannot track the source.</p>
+             loading="eager">
+        <div class="card-footer">🔒 Referrer hidden • Proxy active</div>
     </div>
-
-    <script>
-        (async function() {
-            const IMG_URL = "https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102";
-
-            const img = document.getElementById('main-img');
-            const loading = document.getElementById('loading');
-
-            try {
-                // Fetch image completely hiding referrer, user agent remains browser default but referrer is stripped
-                const response = await fetch(IMG_URL, {
-                    referrerPolicy: "no-referrer",
-                    // By default fetch sends no credentials, which is fine for CDN
-                    // mode: 'no-cors' not needed here, we want to read blob
-                });
-                if (!response.ok) throw new Error('Network response was not ok');
-
-                const blob = await response.blob();
-                const objectURL = URL.createObjectURL(blob);
-
-                // Set image source to blob URL – no external request visible in network tab if no other tag uses it
-                img.src = objectURL;
-                img.style.display = 'block';
-                loading.style.display = 'none';
-            } catch (error) {
-                console.error('Failed to fetch image via JS, trying fallback direct img tag...', error);
-                // Fallback to direct image tag (still with no-referrer)
-                img.src = IMG_URL;
-                img.style.display = 'block';
-                loading.textContent = '⚠️ Image loaded with fallback method (referrer still hidden).';
-            }
-        })();
-    </script>
 </body>
 </html>
