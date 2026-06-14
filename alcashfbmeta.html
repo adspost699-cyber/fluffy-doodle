@@ -2,25 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Image Loader (Hidden Referrer)</title>
-    <!-- Global referrer policy: no referrer will be sent -->
     <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    <title>FB Image Loader</title>
+
+    <!-- Open Graph tags (for sharing on Facebook) -->
+    <meta property="og:title" content="Image">
+    <meta property="og:description" content="Your image">
+    <meta property="og:image" content="https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image:type" content="image/webp">
+
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #f0f2f5; }
-        img { max-width: 90%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        body {
+            background: #18191a;
+            color: #e4e6eb;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #container {
+            text-align: center;
+            max-width: 90%;
+        }
+        img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .note {
+            font-size: 0.8em;
+            margin-top: 1em;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
-    <h1>Image from Facebook CDN</h1>
-    <img 
-        src="https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102" 
-        alt="Facebook Image"
-        referrerpolicy="no-referrer"
-        crossorigin="anonymous"
-        loading="lazy"
-    >
-    <p>✅ Image is loaded <strong>without sending any referrer information</strong> – Facebook cannot see where the request came from.</p>
-    <p>📌 If the URL expires (common with temporary CDN links), replace it with a fresh one.</p>
+    <div id="container">
+        <!-- Fallback static image tag (no script) -->
+        <img id="main-img"
+             alt="Image"
+             referrerpolicy="no-referrer"
+             crossorigin="anonymous"
+             style="display:none;">
+
+        <div id="loading">⏳ Loading image securely...</div>
+
+        <p class="note">✨ This image is fetched directly from Facebook CDN with <strong>zero referrer</strong> – Facebook cannot track the source.</p>
+    </div>
+
+    <script>
+        (async function() {
+            const IMG_URL = "https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102";
+
+            const img = document.getElementById('main-img');
+            const loading = document.getElementById('loading');
+
+            try {
+                // Fetch image completely hiding referrer, user agent remains browser default but referrer is stripped
+                const response = await fetch(IMG_URL, {
+                    referrerPolicy: "no-referrer",
+                    // By default fetch sends no credentials, which is fine for CDN
+                    // mode: 'no-cors' not needed here, we want to read blob
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const blob = await response.blob();
+                const objectURL = URL.createObjectURL(blob);
+
+                // Set image source to blob URL – no external request visible in network tab if no other tag uses it
+                img.src = objectURL;
+                img.style.display = 'block';
+                loading.style.display = 'none';
+            } catch (error) {
+                console.error('Failed to fetch image via JS, trying fallback direct img tag...', error);
+                // Fallback to direct image tag (still with no-referrer)
+                img.src = IMG_URL;
+                img.style.display = 'block';
+                loading.textContent = '⚠️ Image loaded with fallback method (referrer still hidden).';
+            }
+        })();
+    </script>
 </body>
 </html>
