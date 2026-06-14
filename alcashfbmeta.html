@@ -3,68 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <meta name="robots" content="index, follow">
-
-    <!-- ───── Open Graph (Facebook) ───── -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Photo">
-    <meta property="og:description" content="Shared image">
-    <meta property="og:site_name" content="Image Share">
-
-    <!-- ✅ PROXIED image – Facebook ko fbcdn nahi dikhega -->
-    <meta property="og:image" content="https://wsrv.nl/?url=https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102">
-    <meta property="og:image:secure_url" content="https://wsrv.nl/?url=https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102">
-    <meta property="og:image:type" content="image/webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- ───── Twitter Card ───── -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Photo">
-    <meta name="twitter:image" content="https://wsrv.nl/?url=https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102">
-
-    <title>Image</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #0a0a0a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        .card {
-            max-width: 720px;
-            width: 95%;
-            background: #1a1a1a;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .card-footer {
-            padding: 16px 20px;
-            color: #aaa;
-            font-size: 0.8rem;
-            text-align: center;
-        }
-    </style>
+    <title>Facebook Post Mockup</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card">
-        <!-- PROXIED image – wsrv.nl fetches from FB CDN, browser sees neutral domain -->
-        <img src="https://wsrv.nl/?url=https://scontent.fhdd3-1.fna.fbcdn.net/v/t1.15752-9/718815488_962611746538249_5028501815403065048_n.webp?stp=dst-png&_nc_cat=103&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=R60skDOxB_8Q7kNvwFmN48j&_nc_oc=AdpE3P2puKVBhSurzJVT1DoTybJmuQe4GAIfNf8X4Lbvi42cSxBtzM71UnZ6YUZUvUY&_nc_zt=23&_nc_ht=scontent.fhdd3-1.fna&_nc_ss=7b2a8&oh=03_Q7cD5gGHxdphDIiWYsnPSThtSxwlHGibBTk6FZTmix3azbHjbw&oe=6A518102"
-             alt="Image"
-             referrerpolicy="no-referrer"
-             crossorigin="anonymous"
-             loading="eager">
-        <div class="card-footer">🔒 Referrer hidden • Proxy active</div>
+
+    <!-- Facebook Post Container -->
+    <div class="fb-card">
+        
+        <!-- Header: Profile and Timestamp -->
+        <div class="fb-header">
+            <img src="https://yt3.ggpht.com/NLha1ZJYyicuE5epGQYXQ-HyX8Qf-6u5GdEGsCGeLYgGhSDNZjCS_CiQ8qPAKcZaOA6Y8mUET6pRchs=s1024-nd-v1" alt="Profile" class="profile-pic">
+            <div class="user-details">
+                <span class="user-name">Alex Mercer</span>
+                <span class="post-time">Just now · 🌐</span>
+            </div>
+            <div class="more-options">•••</div>
+        </div>
+
+        <!-- Post Body Content -->
+        <div class="fb-content">
+            <p>Just deployed the new system update! Everything is running smoothly. 🚀 #coding #developer</p>
+        </div>
+
+        <!-- Fake Media Optional Placeholder -->
+        <div class="fb-media-placeholder">
+            <div class="code-snippet-box">
+                <code>console.log("Hello, World!");</code>
+            </div>
+        </div>
+
+        <!-- Engagement Metrics -->
+        <div class="fb-metrics">
+            <div class="reactions">
+                <span class="reaction-icons">👍❤️😮</span>
+                <span class="reaction-count">42</span>
+            </div>
+            <div class="comment-share-counts">
+                <span>12 Comments</span> · <span>3 Shares</span>
+            </div>
+        </div>
+
+        <!-- Action Ribbon -->
+        <div class="fb-actions">
+            <button class="action-btn">👍 Like</button>
+            <button class="action-btn">💬 Comment</button>
+            <button class="action-btn">↪️ Share</button>
+        </div>
+
     </div>
+
 </body>
 </html>
