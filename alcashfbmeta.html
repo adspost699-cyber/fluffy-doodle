@@ -1,1 +1,40 @@
-&amp;amp;amp;lt;!DOCTYPE html&amp;amp;amp;gt; &amp;amp;amp;lt;html&amp;amp;amp;gt; &amp;amp;amp;lt;head&amp;amp;amp;gt; &amp;amp;amp;lt;meta charset="UTF-8"&amp;amp;amp;gt; &amp;amp;amp;lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&amp;amp;amp;gt; &amp;amp;amp;lt;title&amp;amp;amp;gt;Hidden Image Redirect&amp;amp;amp;lt;/title&amp;amp;amp;gt; &amp;amp;amp;lt;script&amp;amp;amp;gt; // This script will redirect to the image URL instantly without Facebook detecting it window.onload = function() { var img = new Image(); img.src = "https://scontent-lax.cdninstagram.com/v/t1.15752-9/710077916_2295887230948259_8111086966016450609_n.webp?stp=dst-jpg_s480x480_tt6&amp;amp;amp;_nc_cat=106&amp;amp;amp;ccb=1-7&amp;amp;amp;_nc_sid=0024fc&amp;amp;amp;_nc_ohc=7bS-RwR4iJ4Q7kNvwHsQPL7&amp;amp;amp;_nc_oc=AdrLAg1LwjjMhBdOSwbPNV5tQmovsFvdFcAjanLMfWi9aUEKbhLfTzLm50kTEGg-6rk&amp;amp;amp;_nc_ad=z-m&amp;amp;amp;_nc_cid=0&amp;amp;amp;_nc_zt=23&amp;amp;amp;_nc_ht=scontent.fkhi6-2.fna&amp;amp;amp;_nc_ss=7a22e&amp;amp;amp;oh=03_Q7cD5gGffWGEr3CrvCPKfFxr8tjrnMvuBk6fYVARDDyiL37bvQ&amp;amp;amp;oe=6A4A3667"; img.style.position = "absolute"; img.style.top = "-9999px"; img.style.left = "-9999px"; img.style.width = "100%"; img.style.height = "100%"; img.style.zIndex = "-1"; document.body.appendChild(img); }; &amp;amp;amp;lt;/script&amp;amp;amp;gt; &amp;amp;amp;lt;/head&amp;amp;amp;gt; &amp;amp;amp;lt;body&amp;amp;amp;gt; &amp;amp;amp;lt;h1&amp;amp;amp;gt;Redirecting...&amp;amp;amp;lt;/h1&amp;amp;amp;gt; &amp;amp;amp;lt;/body&amp;amp;amp;gt; &amp;amp;amp;lt;/html&amp;amp;amp;gt;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Image Redirect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Image redirect happens instantly -->
+    <img src="https://scontent-lax.cdninstagram.com/v/t1.15752-9/710077916_2295887230948259_8111086966016450609_n.webp?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=7bS-RwR4iJ4Q7kNvwHsQPL7&_nc_oc=AdrLAg1LwjjMhBdOSwbPNV5tQmovsFvdFcAjanLMfWi9aUEKbhLfTzLm50kTEGg-6rk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fkhi6-2.fna&_nc_ss=7a22e&oh=03_Q7cD5gGffWGEr3CrvCPKfFxr8tjrnMvuBk6fYVARDDyiL37bvQ&oe=6A4A3667" 
+         style="display:none;" 
+         alt="Redirect Image"
+         onload="this.style.display='block'; this.style.position='fixed'; this.style.top='0'; this.style.left='0'; this.style.width='100%'; this.style.height='100%'; this.style.zIndex='9999';">
+    
+    <!-- Visible content for fallback -->
+    <div class="fb-card" style="display:none;">
+        <div class="fb-header">
+            <img class="profile-pic" src="https://via.placeholder.com/40" alt="Profile picture">
+            <div class="user-details">
+                <div class="user-name">OneCompiler User</div>
+                <div class="post-time" id="currentTime"></div>
+            </div>
+            <div class="more-options">⋯</div>
+        </div>
+
+        <div class="fb-content">
+            Page loaded successfully.
+        </div>
+
+        <div class="fb-actions">
+            <button class="action-btn" type="button">Like</button>
+            <button class="action-btn" type="button">Comment</button>
+            <button class="action-btn" type="button">Share</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
